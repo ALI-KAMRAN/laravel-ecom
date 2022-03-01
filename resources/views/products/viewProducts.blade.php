@@ -77,9 +77,9 @@ var id = $(this).data('id');
 $.ajax({
 
   url:'{{route("productsDelete")}}',
-  method:'post',
+
   data:{
-  	_token:"{{ csrf_token() }}",
+  
   	'id':id
   },
   success: function(data){

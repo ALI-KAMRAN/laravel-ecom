@@ -10,7 +10,7 @@ Home Page
 		<div class="carousel-inner">
 		  <div class="item active">
 		  <div class="container">
-			<a href="register.html"><img style="width:100%" src="themes/images/carousel/1.png" alt="special offers"/></a>
+			<a href="register.html"><img style="width:100%" src="{{asset('themes/images/carousel/picture1.JPG')}}" alt="special offers"/></a>
 			<div class="carousel-caption">
 				  <h4>Second Thumbnail label</h4>
 				  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -19,7 +19,7 @@ Home Page
 		  </div>
 		  <div class="item">
 		  <div class="container">
-			<a href="register.html"><img style="width:100%" src="themes/images/carousel/2.png" alt=""/></a>
+			<a href="register.html"><img style="width:100%" src="{{asset('themes/images/carousel/picture2.JPG')}}" alt=""/></a>
 				<div class="carousel-caption">
 				  <h4>Second Thumbnail label</h4>
 				  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>

@@ -27,7 +27,7 @@ Route::get('/master', function () {
 
 Route::get('/', [App\Http\Controllers\frontEndController::class, 'index'])->name('homePage');
 Route::get('/specialOffer', [App\Http\Controllers\frontEndController::class, 'specialOffer'])->name('specialOffer');
-Route::get('/delivery', [App\Http\Controllers\frontEndController::class, 'delivery'])->name('delivery');
+// Route::get('/delivery', [App\Http\Controllers\frontEndController::class, 'delivery'])->name('delivery');
 Route::get('/contact', [App\Http\Controllers\frontEndController::class, 'contact'])->name('contact');
 Route::get('/cart', [App\Http\Controllers\frontEndController::class, 'cart'])->name('cart');
 
@@ -81,6 +81,12 @@ Route::get('/admin/logout', [App\Http\Controllers\adminController::class, 'admin
 // admin category area
 Route::get('/addCategory', [App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
 
+// category pizza display on pizza frontEnd Page
+Route::get('/pizzaPage', [App\Http\Controllers\CategoryController::class, 'pizzaPage'])->name('pizzaPage');
+
+
+
+
 // admin save category
 Route::get('/admin/addCategory', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
 
@@ -94,7 +100,7 @@ Route::get('/categories/edit/{id}', [App\Http\Controllers\CategoryController::cl
 Route::get('/categories/update/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('updateCategory');
 
 // admin delete category
-Route::get('/categories/delete/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('deleteCategory');
+Route::post('/categories/delete', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('deleteCategory');
 
 
 
@@ -114,7 +120,7 @@ Route::get('/productsEdit/{id}', [App\Http\Controllers\ProductController::class,
 Route::post('/productsUpdate/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('productsUpdate');
 
 // admin delete product 
-Route::post('/productsDelete', [App\Http\Controllers\ProductController::class, 'destroy'])->name('productsDelete');
+Route::get('/productsDelete', [App\Http\Controllers\ProductController::class, 'destroy'])->name('productsDelete');
 
 // admin add extra product details (view page)
 Route::get('/productExtraDetails/{id}', [App\Http\Controllers\ProductController::class, 'productDetail'])->name('productExtraDetails');

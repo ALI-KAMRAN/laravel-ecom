@@ -45,7 +45,10 @@ View Categor
 			<td>{{$category->created_at}}</td>
 			<td>
 				<a href="{{route('editCategory',$category->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-				<a href="{{route('deleteCategory',$category->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+				
+
+
+				<a href="javascript::void(0)" data-id="{{$category->id}}" class="btn btn-danger delete"><i class="fa fa-trash"></i></a>
 			</td>
 		</tr>
 		@endforeach
@@ -61,3 +64,29 @@ View Categor
 
  </div>         
 @endsection
+
+
+
+@push('footer-script')
+<script>
+	$('.delete').on('click',function(){
+
+if(confirm('Are you sure delete this category')){
+var id = $(this).data('id');
+$.ajax({
+
+  url:'{{route("deleteCategory")}}',
+  method:'post',
+  data:{
+   _token: "{{csrf_token()}}",  
+  	'id':id
+  },
+  success: function(data){
+  	location.reload();
+  }
+});
+}
+});
+
+</script>
+@endpush

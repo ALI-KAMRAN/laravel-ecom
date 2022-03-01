@@ -18,6 +18,12 @@ class CategoryController extends Controller
         return view('adminSide.category.view',compact('categories'));
     }
 
+     // all pizza disply on pizza page
+     public function pizzaPage(){
+        $pizza = category::where('product_id','1')->get();
+        return view('frontEnd.delivery',compact('pizza'));
+     } 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -102,9 +108,10 @@ class CategoryController extends Controller
      */
     public function destroy(Request $request,category $category)
     {
-      $id = $request->id;
-      $category = category::find($id);
-      $category->delete();
-      return redirect()->route('deleteCategory');
+      
+          $id = $request->id;
+        $category_delete = category::find($id);
+        $category_delete->delete();
+      
     }
 }

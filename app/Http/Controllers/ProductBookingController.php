@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\productBooking;
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use Session;
+use Omnipay\Omnipay;
 
 class ProductBookingController extends Controller
 {
