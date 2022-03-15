@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Cart;
+use App\Models\category;
 use Hash;
 use Illuminate\Support\Facades\Auth;
+use Yajra\Datatables\Datatables;
 class frontEndController extends Controller
 {
     public function index(){
@@ -18,13 +20,23 @@ class frontEndController extends Controller
 
     public function specialOffer(){
 
-        return view('frontEnd.specialOffer');
+$all_products = product::get();
+        return view('frontEnd.specialOffer',compact('all_products'));
     }
 
     public function delivery(){
 
         return view('frontEnd.delivery');
     }
+
+
+public function burgerPage(){
+        
+        $burger = category::where('name', 'LIKE', "%burger%",)->get();
+        
+        return view('frontEnd.burgerPage',compact('burger'));
+    }
+
 
     public function contact(){
 
@@ -78,7 +90,9 @@ class frontEndController extends Controller
       'email' => $request->email,
       'password' => Hash::make($request->password),
       'role' => 'user',
-
+      
+      'address' => $request->address,
+      'phone' => $request->phone,
         );
         $user = User::create($data);
         return redirect()->route('userLogin');
@@ -89,7 +103,11 @@ class frontEndController extends Controller
         return redirect()->route('userLogin');
     }
 
-
+public function productReceipt(){
+       
+     $cartData = Cart::get();
+    return view('frontEnd.productReceipt',compact('cartData'));
+}
 
 
 }

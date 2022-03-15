@@ -32,6 +32,7 @@ View Categor
 			<th># No</th>
 			<th>Category Name</th>
 			<th>Parent Category</th>
+			<th>Price</th>
 			<th>Create Date</th>
 			<th>Action</th>
 		</tr>
@@ -42,6 +43,7 @@ View Categor
 			<td>{{$category->id}}</td>
 			<td>{{$category->name}}</td>
 				<td>{{$category->parent_category->name ?? 'No Catogory'}}</td>
+				<td>{{$category->price}}</td>
 			<td>{{$category->created_at}}</td>
 			<td>
 				<a href="{{route('editCategory',$category->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>

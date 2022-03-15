@@ -23,8 +23,10 @@
 		  <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
     
     <ul id="topMenu" class="nav pull-right">
-	 <li class=""><a href="{{route('specialOffer')}}">Specials Offer</a></li>
-	 <li class=""><a href="{{route('pizzaPage')}}">Delivery</a></li>
+    	 <li class=""><a href="{{route('homePage')}}">Home Page</a></li>
+	 <li class=""><a href="{{route('allItems')}}">All Items</a></li>
+	 <li class=""><a href="{{route('pizzaPage')}}">Pizza</a></li>
+	 <li class=""><a href="{{route('burgerPage')}}">Burger</a></li>
 	 <li class=""><a href="{{route('contact')}}">Contact</a></li>
 	 <li class=""><a href="{{route('cart')}}">View Cart</a></li>
 	 <li class="">

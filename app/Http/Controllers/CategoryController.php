@@ -20,8 +20,9 @@ class CategoryController extends Controller
 
      // all pizza disply on pizza page
      public function pizzaPage(){
-        $pizza = category::where('product_id','1')->get();
-        return view('frontEnd.delivery',compact('pizza'));
+        $pizza = category::where('name','LIKE',"%pizza%")->get();
+        
+        return view('frontEnd.pizzaPage',compact('pizza'));
      } 
 
     /**
@@ -47,9 +48,16 @@ class CategoryController extends Controller
         $data = array(
              
              'name' => $request->name,
+             'price' => $request->price,
              'category_id' => $request->category_id
 
         );
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $fileName = date('dmY').time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path("/uploads"), $fileName);
+            $data["image"] = $fileName;
+        }
        $create = category::create($data);
        return redirect()->back();
     }

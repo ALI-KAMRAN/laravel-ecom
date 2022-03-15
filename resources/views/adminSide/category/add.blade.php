@@ -44,13 +44,21 @@ Add Category
                 </div>
                 <div class="x_content">
                   <br />
-                  <form id="demo-form2" action="{{route('category.store')}}" method="get" class="form-horizontal form-label-left">
-@csrf
+                  <form id="demo-form2" action="{{route('category.store')}}" method="POST" class="form-horizontal form-label-left" enctype='multipart/form-data'>
+                         @csrf
                     <div class="item form-group">
                       <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Category Name <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 ">
                         <input name="name" type="text" id="first-name" required="required" class="form-control ">
+                      </div>
+                    </div>
+
+                    <div class="item form-group">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Image <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 ">
+                        <input name="image" type="file" id="image" required="required" class="form-control ">
                       </div>
                     </div>
 
@@ -68,6 +76,14 @@ Add Category
                       </div>
                     </div>
                     
+
+                    <div class="item form-group">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Category Price <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 ">
+                        <input name="price" type="number" id="price" required="required" class="form-control ">
+                      </div>
+                    </div>
                    
                   
                    

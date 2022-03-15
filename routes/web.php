@@ -25,8 +25,25 @@ Route::get('/master', function () {
     return view('products.add');
 });
 
+
+
+
+
+
+
+
+
+Route::get('/receipt', [App\Http\Controllers\frontEndController::class, 'productReceipt'])->name('productReceipt');
+
 Route::get('/', [App\Http\Controllers\frontEndController::class, 'index'])->name('homePage');
-Route::get('/specialOffer', [App\Http\Controllers\frontEndController::class, 'specialOffer'])->name('specialOffer');
+
+// category pizza page display on pizza frontEnd Page
+Route::get('/pizzaPage', [App\Http\Controllers\CategoryController::class, 'pizzaPage'])->name('pizzaPage');
+
+// category burger page display on pizza frontEnd Page
+Route::get('/burgerPage', [App\Http\Controllers\frontEndController::class, 'burgerPage'])->name('burgerPage');
+
+Route::get('/allItems', [App\Http\Controllers\frontEndController::class, 'specialOffer'])->name('allItems');
 // Route::get('/delivery', [App\Http\Controllers\frontEndController::class, 'delivery'])->name('delivery');
 Route::get('/contact', [App\Http\Controllers\frontEndController::class, 'contact'])->name('contact');
 Route::get('/cart', [App\Http\Controllers\frontEndController::class, 'cart'])->name('cart');
@@ -48,7 +65,7 @@ Route::get('/userLogin', [App\Http\Controllers\frontEndController::class, 'userL
 Route::post('/userLoginCheck', [App\Http\Controllers\frontEndController::class, 'userCheck'])->name('userCheck');
 
 // user login data store
-Route::get('/userDataStore', [App\Http\Controllers\frontEndController::class, 'userDataStore'])->name('userDataStore');
+Route::post('/userDataStore', [App\Http\Controllers\frontEndController::class, 'userDataStore'])->name('userDataStore');
 
 // user logout
 Route::get('/userLogout', [App\Http\Controllers\frontEndController::class, 'userLogout'])->name('userLogout');
@@ -81,14 +98,13 @@ Route::get('/admin/logout', [App\Http\Controllers\adminController::class, 'admin
 // admin category area
 Route::get('/addCategory', [App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
 
-// category pizza display on pizza frontEnd Page
-Route::get('/pizzaPage', [App\Http\Controllers\CategoryController::class, 'pizzaPage'])->name('pizzaPage');
+
 
 
 
 
 // admin save category
-Route::get('/admin/addCategory', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+Route::POST('/admin/addCategory', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
 
 // admin view category
 Route::get('/categoriesView', [App\Http\Controllers\CategoryController::class, 'index'])->name('viewCategory');
@@ -139,6 +155,13 @@ Route::get('/productBookDelete}', [App\Http\Controllers\ProductBookingController
 
 // user book products status change
 Route::get('/bookingProductStatus}', [App\Http\Controllers\ProductBookingController::class, 'change_booking_status'])->name('bookingProductStatus');
+
+
+// user book products eway method success
+Route::get('/bookingProductSuccess}', [App\Http\Controllers\ProductBookingController::class, 'bookingSuccess'])->name('bookingProductSuccess');
+
+// user book products eway method failed
+Route::get('/bookingProductFail}', [App\Http\Controllers\ProductBookingController::class, 'bookingFail'])->name('bookingProductFail');
 
 
 

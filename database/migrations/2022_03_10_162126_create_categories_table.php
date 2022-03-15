@@ -14,9 +14,16 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-           $table->bigIncrements('id');
+            $table->bigIncrements('id');
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
+             
+           
+            
+
+
+$table->string('price');
+           $table->string('image');
             $table->string('name');
             $table->enum('status',['1','0'])->default('1');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

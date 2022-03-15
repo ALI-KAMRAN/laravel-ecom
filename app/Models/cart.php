@@ -19,5 +19,8 @@ class cart extends Model
 
         return $this->belongsTo(User::class);
     }
+
+    
+   
    
 }

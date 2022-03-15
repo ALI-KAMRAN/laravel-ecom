@@ -16,7 +16,7 @@ User Register
 	<hr class="soft"/>
 
 
-<form class="form-horizontal" action="{{route('userDataStore')}}" method="get">
+<form class="form-horizontal" action="{{route('userDataStore')}}" method="post">
 	@csrf
 		<h4>Your personal information</h4>
 	
@@ -49,7 +49,7 @@ User Register
 <div class="control-group">
 			<label class="control-label" for="mobile">Mobile Phone </label>
 			<div class="controls">
-			  <input type="number"  name="mobile" id="mobile" placeholder="Mobile Phone"/> 
+			  <input type="number"  name="phone" id="phone" placeholder="Mobile Phone"/> 
 			</div>
 		</div>
 
@@ -57,7 +57,7 @@ User Register
 		<div class="control-group">
 			<label class="control-label" for="mobile">Address </label>
 			<div class="controls">
-			  <input type="text"  name="address" id="mobile" placeholder="Home Address"/> 
+			  <input type="text"  name="address" id="address" placeholder="Home Address"/> 
 			</div>
 		</div>
 

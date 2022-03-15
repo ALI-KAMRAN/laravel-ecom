@@ -109,24 +109,37 @@ Home Page
 		</div>
 
 
+
+
+
+
+
 		<h4>Latest Products </h4>
 			  <ul class="thumbnails">
 			  	@foreach($latest_product as $latest_product)
 				<li class="span3">
 				  <div class="thumbnail">
-					<a  href="product_details.html"><img style="width:200px;height:200px" src="{{asset('uploads/'.$latest_product->image)}}" alt=""/></a>
+					<a  href="{{route('productDetails',$latest_product->id)}}"><img style="width:200px;height:200px" src="{{asset('uploads/'.$latest_product->image)}}" alt=""/></a>
 					<div class="caption">
 					  <h5>{{$latest_product->name}}</h5>
 					  <p> 
 						
 					  </p>
 					 
-					  <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">RS {{$latest_product->price}}</a></h4>
+					  <h4 style="text-align:center"> <a class="btn" href="{{route('productDetails',$latest_product->id)}}">Buy This <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="{{route('productDetails',$latest_product->id)}}">RS {{$latest_product->price}}</a></h4>
 					</div>
 				  </div>
 				</li>
+
+
+
+
 				@endforeach
 			  </ul>	
 </div>
+
+
+
+
 
 @endsection
